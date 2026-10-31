@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    {%- for sitemap_entry in entries %}
+    <url>
+        <loc>{{ sitemap_entry.permalink | escape_xml | safe }}</loc>
+        {%- if sitemap_entry.updated %}
+        <lastmod>{{ sitemap_entry.updated }}</lastmod>
+        {%- endif %}
+    </url>
+    {%- endfor %}
+    {#- Zola's own sitemap, plus pages on the same domain that Zola does not
+        build, such as other GitHub Pages sites served under it (in
+        config.toml: [extra] sitemap_extra = ["https://...", ...]) #}
+    {%- for loc in config.extra.sitemap_extra | default(value=[]) %}
+    <url>
+        <loc>{{ loc | escape_xml | safe }}</loc>
+    </url>
+    {%- endfor %}
+</urlset>
