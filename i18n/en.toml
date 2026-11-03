@@ -24,7 +24,6 @@ Powered_by = "Powered by"
 and = "&"
 more = "more" # "...more" read more links
 latest_posts = "Latest posts"
-homepage_title_addition = "Fast, Lightweight, and Modern Zola Theme"
 page_label = "Page"
 tag_label = "tag"
 category_label = "category"
